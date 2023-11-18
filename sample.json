@@ -1,0 +1,47 @@
+{
+    "tasks": {
+        
+    },
+    "flows": {
+        "definitions": [
+            {
+                "name": "flow1",
+                "description": "flow 1",
+                "is_main": false       
+            },
+            {
+                "name": "flow2",
+                "description": "flow 2",
+                "is_main": false       
+            },
+            {
+                "name": "flow3",
+                "description": "flow 3",
+                "is_main": false       
+            },
+            {
+                "name": "flow4",
+                "description": "flow 4",
+                "is_main": false       
+            },
+            {
+                "name": "parent_flow",
+                "description": "Parent Flow",
+                "is_main": true       
+            }
+        ],
+        "dependencies": {
+            "flow1": [],
+            "flow2": [],
+            "flow3": ["flow2"],
+            "flow4": ["flow1"]
+        },
+        "belonging": {
+            "flow1": ["flow2", "flow3"],
+            "flow2": [],
+            "flow3": [],
+            "flow4": [],
+            "general_flow": ["flow1", "flow4"]
+        }
+    }
+}
