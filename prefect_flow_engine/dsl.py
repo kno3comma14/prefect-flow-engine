@@ -1,4 +1,6 @@
 import json
+import graph
+from importlib_resources import files
 
 
 def read_json_file(path):
@@ -30,4 +32,6 @@ def verify_flow_concurrency(parent_flow, child_flow1, child_flow2):
 
 
 if __name__ == "__main__":
-    data = read_json_file("sample.json")
+    sample_path = files('resources').joinpath('sample.json')
+    data = read_json_file(sample_path)
+    print(graph.calculate_definition_order(data['flows']['dependencies'], data['flows']['belonging']))
